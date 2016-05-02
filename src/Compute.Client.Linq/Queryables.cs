@@ -52,6 +52,10 @@ namespace DD.CBU.Compute.Api.Client.Linq
         /// <returns>The IQueryable instance</returns>
         public IQueryable<OperatingSystemType> OperatingSystems(string datacenterId)
         {
+            if (string.IsNullOrEmpty(datacenterId))
+                throw new ArgumentException($"{nameof(datacenterId)} cannot be empty.");
+
+
             return new ComputeApiQueryBuilder<OperatingSystemListOptions, OperatingSystemType, Guid>()
                 .OnQuery((filterable, pageable) => _client.Infrastructure.GetOperatingSystems(datacenterId, pageable, filterable))
                 .MapParameter("displayName", "name")
@@ -92,6 +96,9 @@ namespace DD.CBU.Compute.Api.Client.Linq
         /// <returns>The IQueryable instance</returns>
         public IQueryable<PublicIpBlockType> PublicIpBlocks(Guid networkDomainId)
         {
+            if (networkDomainId == Guid.Empty)
+                throw new ArgumentException($"{nameof(networkDomainId)} cannot be empty.");
+
             return new ComputeApiQueryBuilder<PublicIpListOptions, PublicIpBlockType, Guid>()
                 .OnGet(id => _client.Networking.IpAddress.GetPublicIpBlock(id))
                 .OnQuery((filterable, pageable) => _client.Networking.IpAddress.GetPublicIpBlocksPaginated(networkDomainId, pageable, filterable))
@@ -105,6 +112,9 @@ namespace DD.CBU.Compute.Api.Client.Linq
         /// <returns>The IQueryable instance</returns>
         public IQueryable<ReservedPublicIpv4AddressType> ReservedPublicIpv4Addresses(Guid networkDomainId)
         {
+            if (networkDomainId == Guid.Empty)
+                throw new ArgumentException($"{nameof(networkDomainId)} cannot be empty.");
+
             return new ComputeApiQueryBuilder<ReservedPublicIpv4ListOptions, ReservedPublicIpv4AddressType, Guid>()
                 .OnQuery((filterable, pageable) => _client.Networking.IpAddress.GetReservedPublicAddressesForNetworkDomainPaginated(networkDomainId, pageable, filterable))
                 .MapParameter("value", "ipAddress")
@@ -142,6 +152,9 @@ namespace DD.CBU.Compute.Api.Client.Linq
         /// <returns>The IQueryable instance</returns>
         public IQueryable<FirewallRuleType> FirewallRules(Guid networkDomainId)
         {
+            if (networkDomainId == Guid.Empty)
+                throw new ArgumentException($"{nameof(networkDomainId)} cannot be empty.");
+
             return new ComputeApiQueryBuilder<FirewallRuleListOptions, FirewallRuleType, Guid>()
                 .OnGet(id => _client.Networking.FirewallRule.GetFirewallRule(id))
                 .OnQuery((filterable, pageable) => _client.Networking.FirewallRule.GetFirewallRulesPaginated(filterable, pageable))
@@ -156,6 +169,9 @@ namespace DD.CBU.Compute.Api.Client.Linq
         /// <returns>The IQueryable instance</returns>
         public IQueryable<IpAddressListType> IpAddressLists(Guid networkDomainId)
         {
+            if (networkDomainId == Guid.Empty)
+                throw new ArgumentException($"{nameof(networkDomainId)} cannot be empty.");
+
             return new ComputeApiQueryBuilder<IpAddressListOptions, IpAddressListType, Guid>()
                 .OnGet(id => _client.Networking.FirewallRule.GetIpAddressList(id))
                 .OnQuery((filterable, pageable) => _client.Networking.FirewallRule.GetIpAddressListsPaginated(networkDomainId, filterable, pageable))
@@ -169,6 +185,9 @@ namespace DD.CBU.Compute.Api.Client.Linq
         /// <returns>The IQueryable instance</returns>
         public IQueryable<PortListType> PortLists(Guid networkDomainId)
         {
+            if (networkDomainId == Guid.Empty)
+                throw new ArgumentException($"{nameof(networkDomainId)} cannot be empty.");
+
             return new ComputeApiQueryBuilder<PortListOptions, PortListType, Guid>()
                 .OnGet(id => _client.Networking.FirewallRule.GetPortList(id))
                 .OnQuery((filterable, pageable) => _client.Networking.FirewallRule.GetPortListsPaginated(networkDomainId, filterable, pageable))
@@ -182,6 +201,9 @@ namespace DD.CBU.Compute.Api.Client.Linq
         /// <returns>The IQueryable instance</returns>
         public IQueryable<NatRuleType> NatRules(Guid networkDomainId)
         {
+            if (networkDomainId == Guid.Empty)
+                throw new ArgumentException($"{nameof(networkDomainId)} cannot be empty.");
+
             return new ComputeApiQueryBuilder<NatRuleListOptions, NatRuleType, Guid>()
                 .OnGet(id => _client.Networking.Nat.GetNatRule(id))
                 .OnQuery((filterable, pageable) => _client.Networking.Nat.GetNatRulesPaginated(networkDomainId, filterable, pageable))
@@ -253,6 +275,9 @@ namespace DD.CBU.Compute.Api.Client.Linq
         /// <returns>The IQueryable instance</returns>
         public IQueryable<DefaultHealthMonitorType> DefaultHealthMonitors(Guid networkDomainId)
         {
+            if (networkDomainId == Guid.Empty)
+                throw new ArgumentException($"{nameof(networkDomainId)} cannot be empty.");
+
             return new ComputeApiQueryBuilder<DefaultHealthMonitorListOptions, DefaultHealthMonitorType, Guid>()
                 .OnQuery((filterable, pageable) => _client.Networking.VipSupport.GetDefaultHealthMonitorsPaginated(networkDomainId, filterable, pageable))
                 .Build();
@@ -265,6 +290,9 @@ namespace DD.CBU.Compute.Api.Client.Linq
         /// <returns>The IQueryable instance</returns>
         public IQueryable<DefaultPersistenceProfileType> DefaultPersistenceProfiles(Guid networkDomainId)
         {
+            if (networkDomainId == Guid.Empty)
+                throw new ArgumentException($"{nameof(networkDomainId)} cannot be empty.");
+
             return new ComputeApiQueryBuilder<DefaultPersistenceProfileListOptions, DefaultPersistenceProfileType, Guid>()
                 .OnQuery((filterable, pageable) => _client.Networking.VipSupport.GetDefaultPersistenceProfilesPaginated(networkDomainId, filterable, pageable))
                 .MapParameter("virtualListenerCompatibility.type", "virtualListenerType")
@@ -279,6 +307,9 @@ namespace DD.CBU.Compute.Api.Client.Linq
         /// <returns>The IQueryable instance</returns>
         public IQueryable<DefaultIruleType> DefaultIrules(Guid networkDomainId)
         {
+            if (networkDomainId == Guid.Empty)
+                throw new ArgumentException($"{nameof(networkDomainId)} cannot be empty.");
+
             return new ComputeApiQueryBuilder<DefaultIruleListOptions, DefaultIruleType, Guid>()
                 .OnQuery((filterable, pageable) => _client.Networking.VipSupport.GetDefaultIrulesPaginated(networkDomainId, filterable, pageable))
                 .MapParameter("irule.id", "id")
@@ -297,7 +328,7 @@ namespace DD.CBU.Compute.Api.Client.Linq
         public IQueryable<SecurityGroupType> SecurityGroups(Guid? vlanId, Guid? serverId)
         {
             if (!vlanId.HasValue && !serverId.HasValue)
-                throw new ArgumentException("Either vlanId or serverId must be specified.");
+                throw new ArgumentException($"Either {vlanId} or {serverId} must be specified.");
 
             var builder = new ComputeApiQueryBuilder<SecurityGroupListOptions, SecurityGroupType, Guid>()
                 .OnQuery((filterable, pageable) => _client.Networking.SecurityGroup.GetSecurityGroupsPaged(vlanId, serverId, pageable, filterable));
@@ -337,6 +368,9 @@ namespace DD.CBU.Compute.Api.Client.Linq
         /// <returns>The IQueryable instance</returns>
         public IQueryable<NicWithSecurityGroupType> Nics(Guid vlanId)
         {
+            if (vlanId == Guid.Empty)
+                throw new ArgumentException($"{nameof(vlanId)} cannot be empty.");
+
             return new ComputeApiQueryBuilder<ListNicsOptions, NicWithSecurityGroupType, Guid>()
                 .OnQuery((filterable, pageable) => _client.ServerManagement.Server.ListNics(vlanId, filterable, pageable))
                 .Build();
@@ -351,7 +385,7 @@ namespace DD.CBU.Compute.Api.Client.Linq
         public IQueryable<AntiAffinityRuleType> AntiAffinityRules(Guid? serverId, Guid? networkDomainId)
         {
             if (!serverId.HasValue && !networkDomainId.HasValue)
-                throw new ArgumentException("Either serverId or networkDomainId must be specified.");
+                throw new ArgumentException($"Either {serverId} or {networkDomainId} must be specified.");
 
             var builder = new ComputeApiQueryBuilder<AntiAffinityRuleListOptions, AntiAffinityRuleType, Guid>()
                 .OnQuery((filterable, pageable) => _client.ServerManagement.AntiAffinityRule.GetAntiAffinityRulesPaginated(filterable, pageable));

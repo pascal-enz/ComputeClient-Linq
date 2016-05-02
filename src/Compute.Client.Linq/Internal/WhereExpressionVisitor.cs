@@ -51,6 +51,9 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
         /// <returns>The extracted filters.</returns>
         public static IEnumerable<ParsedRequestFilter> ExtractFilters(Expression expression, string propertyPath = null)
         {
+            if (expression == null)
+                throw new ArgumentNullException(nameof(expression));
+
             var visitor = new WhereExpressionVisitor(propertyPath);
             visitor.Visit(expression);
 

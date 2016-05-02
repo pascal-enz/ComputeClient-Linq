@@ -28,6 +28,9 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
         /// <returns>The pageable request.</returns>
         public static ParsedRequest Parse(Expression expression)
         {
+            if (expression == null)
+                throw new ArgumentNullException(nameof(expression));
+
             var visitor = new RequestParser<TElement>();
             visitor.Visit(expression);
             return visitor.Result;

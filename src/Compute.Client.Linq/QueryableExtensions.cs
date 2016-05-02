@@ -21,6 +21,9 @@ namespace DD.CBU.Compute.Api.Client.Linq
         /// <returns>The paged response.</returns>
         public static PagedResponse<TResult> ToPagedResponse<TResult>(this IQueryable<TResult> source)
         {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
             return Task.Run(() => source.ToPagedResponseAsync()).Result;
         }
 
@@ -32,6 +35,9 @@ namespace DD.CBU.Compute.Api.Client.Linq
         /// <returns>The paged response as an async <see cref="Task"/>.</returns>
         public static async Task<PagedResponse<TResult>> ToPagedResponseAsync<TResult>(this IQueryable<TResult> source)
         {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
             var query = source as ComputeApiQuery<TResult>;
             if (query == null)
                 throw new InvalidOperationException("Method 'ToPagedResponse' can only be used for IQueryable instances of Compute API objects.");

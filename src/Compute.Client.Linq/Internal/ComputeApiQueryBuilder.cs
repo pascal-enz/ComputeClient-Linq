@@ -45,6 +45,9 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
         /// <returns>The Linq Query builder instance.</returns>
         public ComputeApiQueryBuilder<TFilter, TElement, TId> OnGet(Func<TId, Task<TElement>> callback)
         {
+            if (callback == null)
+                throw new ArgumentNullException(nameof(callback));
+
             _getCallback = callback;
             return this;
         }
@@ -56,6 +59,9 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
         /// <returns>The Linq Query builder instance.</returns>
         public ComputeApiQueryBuilder<TFilter, TElement, TId> OnQuery(Func<TFilter, PageableRequest, Task<PagedResponse<TElement>>> callback)
         {
+            if (callback == null)
+                throw new ArgumentNullException(nameof(callback));
+
             _listCallback = callback;
             return this;
         }
@@ -68,6 +74,12 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
         /// <returns>The Linq Query builder instance.</returns>
         public ComputeApiQueryBuilder<TFilter, TElement, TId> MapParameter(string propertyName, string parameterName)
         {
+            if (propertyName == null)
+                throw new ArgumentNullException(nameof(propertyName));
+
+            if (parameterName == null)
+                throw new ArgumentNullException(nameof(parameterName));
+
             _parameterMap.Add(propertyName, parameterName);
             return this;
         }
@@ -80,6 +92,12 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
         /// <returns>The Linq Query builder instance.</returns>
         public ComputeApiQueryBuilder<TFilter, TElement, TId> Filter(string parameterName, object value)
         {
+            if (parameterName == null)
+                throw new ArgumentNullException(nameof(parameterName));
+
+            if (value == null)
+                throw new ArgumentNullException(nameof(value));
+
             _filters.Add(parameterName, value);
             return this;
         }
