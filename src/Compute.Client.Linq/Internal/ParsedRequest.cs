@@ -8,7 +8,7 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
     /// <summary>
     /// Represents a single parsed filter expression.
     /// </summary>
-    internal class ParsedRequestFilter
+    internal sealed class ParsedRequestFilter
     {
         /// <summary>
         /// Gets or sets the field name.
@@ -29,7 +29,7 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
     /// <summary>
     /// Represents a single parsed order-by expression.
     /// </summary>
-    internal class ParsedRequestOrderBy
+    internal sealed class ParsedRequestOrderBy
     {
         /// <summary>
         /// Gets or sets the field name.
@@ -45,7 +45,7 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
     /// <summary>
     /// The result of a request parsing operation.
     /// </summary>
-    internal class ParsedRequest
+    internal sealed class ParsedRequest
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ParsedRequest"/> class.

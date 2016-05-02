@@ -11,7 +11,7 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
     /// <summary>
     /// Parses an <see cref="Expression"/> into a <see cref="ParsedRequest"/>.
     /// </summary>
-    internal class QueryExpressionVisitor<TElement> : ExpressionVisitor
+    internal sealed class QueryExpressionVisitor<TElement> : ExpressionVisitor
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RequestParser"/> class.

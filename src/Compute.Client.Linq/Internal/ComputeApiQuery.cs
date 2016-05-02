@@ -10,7 +10,7 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
     /// A custom implementation of the <see cref="IOrderedQueryable"/> contract.
     /// </summary>
     /// <typeparam name="TElement">The element type.</typeparam>
-    internal class ComputeApiQuery<TElement> : IOrderedQueryable<TElement>
+    internal sealed class ComputeApiQuery<TElement> : IOrderedQueryable<TElement>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LinqQuery"/> class.

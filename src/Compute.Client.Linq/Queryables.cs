@@ -15,7 +15,7 @@ namespace DD.CBU.Compute.Api.Client.Linq
     /// <summary>
     /// Provides access to queryable asset collections.
     /// </summary>
-    public class Queryables
+    public sealed class Queryables
     {
         /// <summary>
         /// The Compute API client instance.

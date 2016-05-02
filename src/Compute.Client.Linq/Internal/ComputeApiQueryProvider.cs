@@ -10,7 +10,7 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
     /// A custom implementation of the <see cref="IQueryProvider"/> contract.
     /// </summary>
     /// <typeparam name="TElement">The element type.</typeparam>
-    internal class ComputeApiQueryProvider<TElement> : IQueryProvider
+    internal sealed class ComputeApiQueryProvider<TElement> : IQueryProvider
     {
         /// <summary>
         /// The compute API Query Executor.
