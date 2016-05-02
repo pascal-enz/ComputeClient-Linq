@@ -11,12 +11,12 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
     /// <summary>
     /// Parses an <see cref="Expression"/> into a <see cref="ParsedRequest"/>.
     /// </summary>
-    internal class RequestParser<TElement> : ExpressionVisitor
+    internal class QueryExpressionVisitor<TElement> : ExpressionVisitor
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RequestParser"/> class.
         /// </summary>
-        private RequestParser()
+        private QueryExpressionVisitor()
         {
             Result = new ParsedRequest();
         }
@@ -31,7 +31,7 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
             if (expression == null)
                 throw new ArgumentNullException(nameof(expression));
 
-            var visitor = new RequestParser<TElement>();
+            var visitor = new QueryExpressionVisitor<TElement>();
             visitor.Visit(expression);
             return visitor.Result;
         }

@@ -42,7 +42,7 @@ namespace DD.CBU.Compute.Api.Client.Linq
             if (query == null)
                 throw new InvalidOperationException("Method 'ToPagedResponse' can only be used for IQueryable instances of Compute API objects.");
 
-            var request = RequestParser<TResult>.Parse(query.Expression);
+            var request = QueryExpressionVisitor<TResult>.Parse(query.Expression);
             if (request.ExecuteAsLambda)
                 throw new InvalidOperationException("Method 'ToPagedResponse' cannot be used after Enumerable extension methods like Single, Select or ToList.");
 

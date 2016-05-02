@@ -71,7 +71,7 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal
             if (expression == null)
                 throw new ArgumentNullException(nameof(expression));
 
-            var request = RequestParser<TElement>.Parse(expression);
+            var request = QueryExpressionVisitor<TElement>.Parse(expression);
             return GetQueryExecutor(request.ExecuteAsLambda).Execute(request);
         }
 

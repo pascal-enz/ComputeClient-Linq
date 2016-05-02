@@ -75,7 +75,7 @@
     <Compile Include="Internal\WhereExpressionVisitor.cs" />
     <Compile Include="Internal\ComputeApiQuery.cs" />
     <Compile Include="Internal\ComputeApiQueryProvider.cs" />
-    <Compile Include="Internal\RequestParser.cs" />
+    <Compile Include="Internal\QueryExpressionVisitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
