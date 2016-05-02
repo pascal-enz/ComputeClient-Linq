@@ -53,12 +53,12 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal.Helpers
             var visitor = new ExpressionFinder(e => e.NodeType == ExpressionType.Constant && e.Type.IsGenericType && e.Type.GetGenericTypeDefinition() == typeof(ComputeApiQuery<>));
             visitor.Visit(node);
 
-            if (visitor.Result == null)
+            if (visitor.Results.Count == 0)
             {
                 return null;
             }
 
-            var query = (IQueryable)((ConstantExpression)visitor.Result).Value;
+            var query = (IQueryable)((ConstantExpression)visitor.Results.First()).Value;
             return query.Provider;
         }
     }

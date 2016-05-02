@@ -67,7 +67,7 @@
     <Compile Include="Internal\QueryExecutors\LambdaQueryExecutor.cs" />
     <Compile Include="Internal\QueryExecutors\ComputeApiQueryExecutor.cs" />
     <Compile Include="Internal\QueryExecutors\IQueryExecutor.cs" />
-    <Compile Include="Internal\ParsedResult.cs" />
+    <Compile Include="Internal\ParsedRequest.cs" />
     <Compile Include="QueryableExtensions.cs" />
     <Compile Include="Queryables.cs" />
     <Compile Include="Internal\Helpers\ExpressionFinder.cs" />

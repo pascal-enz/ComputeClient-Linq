@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 namespace DD.CBU.Compute.Api.Client.Linq.Internal.Helpers
 {
     /// <summary>
-    /// A helper class to find a specific expression in a tree.
+    /// A helper class to find expressions in a tree.
     /// </summary>
     internal sealed class ExpressionFinder : ExpressionVisitor
     {
@@ -32,14 +32,6 @@ namespace DD.CBU.Compute.Api.Client.Linq.Internal.Helpers
         /// The found expressions.
         /// </summary>
         public IList<Expression> Results { get; private set; }
-
-        /// <summary>
-        /// The found expression.
-        /// </summary>
-        public Expression Result
-        {
-            get { return Results.Count > 0 ? Results.First() : null; }
-        }
 
         /// <summary>
         /// Dispatches the expression to one of the more specialized visit methods in this class.
