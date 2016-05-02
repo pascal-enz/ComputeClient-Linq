@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code Analysis", "Code Analysis", "{E5E0F4D1-CC44-429B-A48B-D41501BDCC0C}"
+	ProjectSection(SolutionItems) = preProject
+		..\CaaS_PS (unit-test).ruleset = ..\CaaS_PS (unit-test).ruleset
+		..\CaaS_PS (web).ruleset = ..\CaaS_PS (web).ruleset
+		..\CaaS_PS.ruleset = ..\CaaS_PS.ruleset
+		..\CustomDictionary.xml = ..\CustomDictionary.xml
+		..\LICENSE = ..\LICENSE
+		..\Settings.StyleCop = ..\Settings.StyleCop
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{B01410A7-D99E-4F0F-B4DB-AF1AB407C3FB}"
+	ProjectSection(SolutionItems) = preProject
+		..\Fields.txt = ..\Fields.txt
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+		SolutionAssemblyInfo.cs = SolutionAssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{19AFA63F-B7A0-4DF1-A630-F67D3EE44903}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compute.Client.Linq", "Compute.Client.Linq\Compute.Client.Linq.csproj", "{18A7DFBB-AD65-4FB2-8AEF-7636461A91F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compute.Client.Linq.UnitTests", "Compute.Client.Linq.UnitTests\Compute.Client.Linq.UnitTests.csproj", "{C83632CA-7931-4663-A40B-153114DBE3BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5BAA4E74-35F8-4049-A9FF-78F12ECD216B}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18A7DFBB-AD65-4FB2-8AEF-7636461A91F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18A7DFBB-AD65-4FB2-8AEF-7636461A91F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18A7DFBB-AD65-4FB2-8AEF-7636461A91F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18A7DFBB-AD65-4FB2-8AEF-7636461A91F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83632CA-7931-4663-A40B-153114DBE3BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83632CA-7931-4663-A40B-153114DBE3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83632CA-7931-4663-A40B-153114DBE3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83632CA-7931-4663-A40B-153114DBE3BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E5E0F4D1-CC44-429B-A48B-D41501BDCC0C} = {B01410A7-D99E-4F0F-B4DB-AF1AB407C3FB}
+		{C83632CA-7931-4663-A40B-153114DBE3BF} = {19AFA63F-B7A0-4DF1-A630-F67D3EE44903}
+	EndGlobalSection
+EndGlobal

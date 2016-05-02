@@ -1,0 +1,224 @@
+List Data Centers
+	id
+
+List Operating Systems
+	datacenterId (required) (not mapped)
+	id
+	name (-> displayName)
+	family
+
+List Network Domains
+	id
+	datacenterId
+	name
+	type
+	state
+	createTime
+
+List VLANs
+	id
+	networkDomainId (-> networkDomain.id)
+	datacenterId
+	name
+	privateIpv4Address (-> privateIpv4Range.address)
+	ipv6Address (-> ipv6Range.address)
+	state
+	createTime
+
+List Public IPv4 Address Blocks
+	networkDomainId (required)
+	id
+	datacenterId
+	baseIp
+	size
+	state
+	createTime
+
+List Reserved Public IPv4 Addresses
+	networkId or networkDomainId (required)
+	ipBlockId
+	ipAddress (-> value)
+
+List Reserved Private IPv4 Addresses
+	networkId
+	vlanId
+	ipAddress (-> value)
+
+List Reserved IPv6 Addresses
+	vlanId
+	ipAddress (-> value)
+
+List Firewall Rules
+	networkDomainId (required)
+	id
+	name
+	state
+	createTime (not mapped)
+
+List IP Address Lists
+	networkDomainId (required) (not mapped)
+	id
+	name
+	ipVersion
+	state
+	createTime
+	
+List Port Lists
+	networkDomainId (required) (not mapped)
+	id
+	name
+	state
+	createTime
+	
+List NAT Rules
+	networkDomainId (required)
+	id
+	state
+	createTime
+	internalIp
+	externalIp
+	nodeId (not mapped)
+
+List Nodes
+	id
+	networkDomainId
+	datacenterId
+	name
+	state
+	createTime
+	ipv4Address
+	ipv6Address
+
+List Pools
+	id
+	networkDomainId
+	datacenterId
+	name
+	state
+	createTime
+	loadBalanceMethod
+	slowRampTime
+
+List Pool Members
+	id
+	networkDomainId
+	datacenterId
+	poolId (-> pool.id)
+	poolName (-> pool.name)
+	nodeId (-> node.id)
+	nodeName (-> node.name)
+	nodeIp (-> node.(-> ipAddress))
+	nodeStatus (-> node.status)
+	port
+	status
+	state
+	createTime
+
+List Virtual Listener
+	id
+	networkDomainId
+	datacenterId
+	name
+	enabled
+	state
+	createTime
+	type
+	protocol
+	listenerIpAddress
+	port
+	poolId (-> pool.id)
+	clientClonePoolId (-> clientClonePool.id)
+	persistenceProfileId (-> persistenceProfile.id)
+	fallbackPersistenceProfileId (-> fallbackPersistenceProfile.id)
+
+List Default Health Monitors
+	networkDomainId (required) (not mapped)
+	id
+	name
+	nodeCompatible 
+	poolCompatible 
+
+List Default Persistence Profiles
+	networkDomainId (required) (not mapped)
+	id
+	name
+	fallbackCompatible
+	virtualListenerType (-> collection!!!)
+	virtualListenerProtocol (-> collection!!!)
+
+List Default iRules
+	networkDomainId (required) (not mapped)
+	id (-> irule.id)
+	name (-> irule.name)
+	virtualListenerType (-> virtualListenerCompatibility.Any(vlc => vlc.type))
+	virtualListenerProtocol (-> virtualListenerCompatibility.Any(vlc => vlc.protocol))
+
+List Security Groups
+	vlanId or serverId (required) (serverId not mapped)
+	id
+	name
+	state
+	createTime
+
+List Servers
+	id
+	datacenterId
+	networkId (-> nic.networkId)
+	networkDomainId (-> networkInfo.networkDomainId)
+	vlanId (-> networkInfo.primaryNic.vlanId)
+	sourceImageId
+	deployed
+	name
+	createTime
+	state
+	started
+	operatingSystemId (-> operatingSystem.id)
+	ipv6 (-> networkInfo.primaryNic.ipv6)
+	privateIpv4 (-> nic.privateIpv4) / (-> networkInfo.primaryNic.privateIpv4)
+
+List NICs
+	vlanId (required) (not mapped)
+	id
+	serverId
+	securityGroupId (not mapped)
+	securityGroup (not mapped)
+
+List Server Anti-Affinity Rules
+	networkDomainId or serverId or networkId (required) (not mapped)
+	id
+	state
+	createTime
+
+List OS Images
+	id
+	datacenterId
+	name
+	createTime
+	state (?)
+	operatingSystemId (-> operatingSystem.id)
+	operatingSystemFamily (-> operatingSystem.family)
+
+List Customer Images
+	id
+	datacenterId
+	name
+	createTime
+	state
+	operatingSystemId (-> operatingSystem.id)
+	operatingSystemFamily (-> operatingSystem.family)
+
+List Tag Keys
+	id
+	name
+	valueRequired
+	displayOnReport
+
+List Tags
+	assetId
+	assetType
+	datecenterId
+	tagKeyName
+	tagKeyId
+	value
+	valueRequired
+	displayOnReport
